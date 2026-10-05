@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>web</title>
+    <style>
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .link-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .link-buttons a {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2563eb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .link-buttons a:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 768px) {
+            .link-buttons a {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            img {
+                width: 90%;
+                height: auto;
+            }
+
+            video {
+                width: 90%;
+                height: auto;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <p>這是我的第一個 Python 網頁伺服器。</p>
+
+    <section>
+        <h2>遊戲照片</h2>
+        <img src="images/photo1.jpg" alt="我的照片" width="960" height="540">
+    </section>
+
+    <section>
+        <div class="video-wrap">
+            <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/bp4_7T9J6Fg"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section>
+        <div id="myPlot" style="width:100%;max-width:700px"></div>
+    </section>
+
+    <section>
+        <h2>相關網站</h2>
+        <div class="link-buttons">
+            <a href="https://a2008022719790104-droid.github.io/NFU-work/" target="_blank" rel="noopener noreferrer">NFU-work</a>
+            <a href="https://w970311w-ux.github.io/AAA/" target="_blank" rel="noopener noreferrer">AAA</a>
+            <a href="https://bm-architect.wixsite.com/bmportfilio" target="_blank" rel="noopener noreferrer">BM Portfolio</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script>
+        const xArray = ["競技", "多人", "Rouglike", "生存建造", "FPS"];
+        const yArray = [38, 58, 32, 28, 50];
+
+        const layout = { title: "遊戲種類時間佔比" };
+
+        const data = [{ labels: xArray, values: yArray, type: "pie" }];
+
+        Plotly.newPlot("myPlot", data, layout);
+    </script>
+</body>
+</html>
